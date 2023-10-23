@@ -1,3 +1,4 @@
+"""All pages locators"""
 from selenium.webdriver.common.by import By
 
 
@@ -19,7 +20,8 @@ class AccountPageLocators():
     DEPOSIT_SUBMIT_BTN = (By.CSS_SELECTOR, "button[type='submit']")
     WITHDRAWL_SUBMIT_BTN = (By.CSS_SELECTOR, "button[type='submit']")
     BALANCE = (By.XPATH,
-               "//div[contains(.,'Balance')]/strong/following-sibling::text()[contains(.,'Balance')]/following-sibling::node()")
+               "//div[contains(.,'Balance')]/strong/following-sibling::text()"
+               "[contains(.,'Balance')]/following-sibling::node()")
 
 
 class TransactionsPageLocators():

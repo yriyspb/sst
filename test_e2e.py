@@ -1,12 +1,16 @@
+"""Module providing main test function"""
+import allure
 from .pages.login_page import LoginPage
 from .pages.customer_page import CustomerPage
 from .pages.account_page import AccountPage
-from .pages.transactions_page import TransactionsPage
-import allure
+from .pages.transactions_page import TransactionsPage, data
+from .util import create_csv
 
 
 def test_e2e(browser):
-    link = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login"
+    """e2e test steps"""
+    link = "https://www.globalsqa.com/angularJs-protractor/" \
+           "BankingProject/#/login"
     page = LoginPage(browser, link)
     page.open()
     page.go_to_customer_page()
@@ -18,6 +22,8 @@ def test_e2e(browser):
     account_page.go_to_transactions_page()
     transactions_page = TransactionsPage(browser, browser.current_url)
     transactions_page.transactions_check()
-    transactions_page.create_csv()
+    transactions_page.parse_table()
+    create_csv(data)
     with allure.step("Add file in report"):
-       allure.attach.file("transactions.csv", name="transactions", attachment_type=allure.attachment_type.CSV)
+        allure.attach.file("transactions.csv", name="transactions",
+                           attachment_type=allure.attachment_type.CSV)
