@@ -8,9 +8,6 @@ data = []
 
 class TransactionsPage(BasePage):
 
-    @allure.feature('History')
-    @allure.story('Страница истории транзакций')
-    @allure.severity('critical')
     def transactions_check(self):
         credit_string = self.browser.find_elements(
             *TransactionsPageLocators.CREDIT_STRING)

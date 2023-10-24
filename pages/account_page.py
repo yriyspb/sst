@@ -7,9 +7,6 @@ from ..util import fibonacci_number, f
 
 class AccountPage(BasePage):
 
-    @allure.feature('Debit credit')
-    @allure.story('Операции по счёту, снятие и пополнение')
-    @allure.severity('critical')
     def deposit_withdrawal(self):
         deposit_tab = self.browser.find_element(
             *AccountPageLocators.DEPOSIT_TAB)

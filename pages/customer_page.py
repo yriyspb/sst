@@ -8,9 +8,6 @@ from .locators import CustomerPageLocators
 
 class CustomerPage(BasePage):
 
-    @allure.feature('Select user')
-    @allure.story('Выбор пользователя')
-    @allure.severity('normal')
     def select_user(self):
         with allure.step("Проверим cуществование пользователя"):
             select = Select(

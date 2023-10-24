@@ -6,9 +6,6 @@ from .locators import LoginPageLocators
 
 class LoginPage(BasePage):
 
-    @allure.feature('Login page')
-    @allure.story('Страница логина')
-    @allure.severity('critical')
     def should_be_login_button(self):
         with allure.step("Проверим загрузку страницы теста"):
             assert self.is_element_present(
